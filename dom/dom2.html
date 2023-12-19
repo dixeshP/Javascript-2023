@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="language">
+      <div class="lang-name">Java script</div>
+    </div>
+
+    <script>
+      const addLanguage = (LangDname) => {
+        const addIng = document.createElement("div");
+        addIng.appendChild(document.createTextNode(LangDname));
+        document.querySelector(".language").appendChild(addIng);
+      };
+
+      addLanguage("Qbasic");
+    </script>
+  </body>
+</html>

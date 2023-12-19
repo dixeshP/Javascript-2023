@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" id="formId">
+      <input type="text" id="getInput" placeholder="Add input" />
+      <input type="submit" value="submit" id="submitVal" />
+    </form>
+
+    <h2>Your Try Left <span class="tryLeft">10</span></h2>
+    <h2 id="addValue"></h2>
+    <h2 class="showmessage" id="showMsg"></h2>
+
+    <h3 id="validMsg"></h3>
+
+    <script src="script.js"></script>
+    <script>
+      // JavaScript Random num Game
+      const randomNum = Math.round(Math.random() * 100 + 1);
+      const formShowId = document.querySelector("#formId");
+      const getInputValue = document.querySelector("#getInput");
+      const submitForm = document.querySelector("#submitVal");
+      const tryLeft = document.querySelector(".tryLeft");
+      const validMessage = document.querySelector("#validMsg");
+      const showMessage = document.querySelector("#showMsg");
+      const arrayValue = document.querySelector("#addValue");
+
+      const gameStart = true;
+      const valueNum = 1;
+      const arayNum = [];
+
+      if (gameStart) {
+        submitForm.addEventListener("click", (eventSub) => {
+          eventSub.preventDefault();
+          const valueGet = parseFloat(getInputValue.value);
+          validationValue(valueGet);
+        });
+      }
+
+      const validationValue = (event) => {
+        if (isNaN(event)) {
+          messageShow("Please enter valid number");
+        } else if (event <= 0) {
+          messageShow("Please enter value more then 0");
+        } else if (event > 100) {
+          messageShow("Please enter value down then 100");
+        } else {
+          valueCheck(event);
+          messageShow("Curract value");
+        }
+      };
+
+      const valueCheck = (event) => {
+        console.log(`Your number is ${event}`);
+        getInputValue.value = "";
+        console.log(arayNum.push(event));
+        arrayValue.innerHTML += `${event}, `;
+        if (11 > valueNum + arayNum.push(event)) {
+          if (event > randomNum) {
+            showMessage.innerHTML = "Your value is tooo high";
+          } else if (event < randomNum) {
+            showMessage.innerHTML = "Your value is tooo low";
+          } else if (event === randomNum) {
+            showMessage.innerHTML = `Your Win The Game Your Number is Same to Random Number ${event}`;
+            endGame();
+          }
+        } else {
+          submitForm.setAttribute("disabled", "disabled");
+          endGame();
+        }
+      };
+
+      const messageShow = (messageShow) => {
+        validMessage.innerHTML = messageShow;
+      };
+
+      const endGame = () => {};
+
+      const startGame = (event) => {};
+    </script>
+  </body>
+</html>

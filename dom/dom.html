@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dixesh Document</title>
+  </head>
+  <body>
+    <script>
+      const customCard = (
+        className = "undefind",
+        bgColor = "black",
+        fontColor = "white",
+        paddingPx = "10px",
+        dynamicText = "Please add something"
+      ) => {
+        const card = document.createElement("div");
+        card.id = Math.round(Math.random() * 10 + 1);
+        card.setAttribute("class", className);
+        card.setAttribute(
+          "style",
+          `background : ${bgColor}; color : ${fontColor}; padding: ${paddingPx}; display: inline-block; margin : 10px`
+        );
+        const addText = document.createTextNode(dynamicText);
+        card.appendChild(addText);
+
+        document.querySelector("body").appendChild(card);
+        console.log(card);
+      };
+
+      customCard();
+      customCard("new-card", "yellow", "black", "15px", "I am Dixesh I am");
+    </script>
+  </body>
+</html>

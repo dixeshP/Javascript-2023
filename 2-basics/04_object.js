@@ -69,3 +69,15 @@ console.log(Object.keys(tinderUser));
 console.log(Object.values(tinderUser));
 console.log(Object.entries(tinderUser));
 console.log(tinderUser.hasOwnProperty("id"));
+
+// Destructureing
+
+const courceObj = {
+  cname: "Dixesh",
+  cource: "dixesh learn JS",
+  price: 500,
+};
+
+const { price: cource_price, cource, cname } = courceObj;
+
+console.log(cource_price, cource, cname);
